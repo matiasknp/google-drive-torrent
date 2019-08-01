@@ -126,7 +126,7 @@ html
                     .field
                         .ui.relaxed.list
             .actions
-                .ui.positive.right.labeled.icon.button Done
+                .ui.positive.right.labeled.icon.button Listo
                     i.checkmark.icon
 
         // Delete torrent modal
@@ -414,8 +414,8 @@ html
                         label: 'percent',
                         percent: torrent.progress * 100,
                         text: {
-                            active: `Down ${downloadSpeed} Up ${uploadSpeed} ETA ${eta}`,
-                            success: 'Complete'
+                            active: `Descargar ${downloadSpeed} Subida ${uploadSpeed} ETA ${eta}`,
+                            success: 'Completado'
                         }
                     });
                     // update torrent files modal checkboxes
