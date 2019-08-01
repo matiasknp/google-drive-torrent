@@ -12,10 +12,10 @@ html
         .ui.fixed.inverted.secondary.menu
             a.item
                 i.fa.fa-bars
-            a.item.red Home
+            a.item.red Inicio
             .right.menu
                 a.item(href="/login")
-                    .ui.primary.button Log in
+                    .ui.primary.button Ingresar
 
         .ui.inverted.vertical.segment(style="padding-top: 40px; min-height: 100%; background-image: url('./img/galaxy.jpg'); background-size: cover")
             if error
@@ -44,18 +44,18 @@ html
                             a.active.step(href="/login")
                                 i.google.icon(style="color: #4885ed")
                                 .content
-                                    .title Login
-                                    .description with your Google Account
+                                    .title Ingresar
+                                    .description con tu cuenta de Google
                             .step
                                 i.magnet.green.icon
                                 .content
-                                    .title Upload
-                                    .description your torrent file
+                                    .title Subí
+                                    .description tu torrent
                             .step
                                 i.desktop.orange.icon
                                 .content
-                                    .title View
-                                    .description files in Google Drive
+                                    .title Ver
+                                    .description archivos en Google Drive
                     .centered.row
                         .twelve.wide.column.middle.aligned
                             #speedometer.ui.orange.active.striped.indicating.progress(data-percent="0")
