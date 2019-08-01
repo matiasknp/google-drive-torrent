@@ -7,7 +7,7 @@ const DRIVE_CLIENT_ID = driveCredentials.clientId;
 const DRIVE_CLIENT_SECRET = driveCredentials.clientSecret;
 const DRIVE_REDIRECT_URI = process.env.DRIVE_REDIRECT_URI || 'https://gdrivetrnt.herokuapp.com/login-callback';
 const DRIVE_RETURN_FIELDS = 'id,name,webViewLink';
-const DRIVE_TORRENT_DIR = 'My torrents';
+const DRIVE_TORRENT_DIR = 'Mis torrents';
 
 const isProduction = process.env.NODE_ENV == 'production';
 
