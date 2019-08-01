@@ -131,7 +131,7 @@ html
 
         // Delete torrent modal
         #delete-torrent-modal.ui.modal
-            .header Delete torrent?
+            .header ¿Desea borrar el torrent?
             .image.content
                 .ui.small.image
                     img(src="./img/trash.ico")
@@ -139,7 +139,7 @@ html
                     .ui.header Estás tratando de eliminar un torrent
                     ul
                         li
-                    p Continuar?
+                    p ¿Continuar?
                     p(style="color: orange") Nota: Ésta acción <strong>no eliminará</strong> tus archivos en Google Drive.
             .actions
                 .ui.negative.right.labeled.icon.button Cancelar
@@ -181,14 +181,14 @@ html
                         rules: [{
                             type: 'regExp',
                             value: '/^magnet:\\?/',
-                            prompt: 'Por favor ingrese un link válido.  Debe empezar con <strong><em>magnet:?</em></strong>'
+                            prompt: 'Por favor ingrese un link válido.  Debe empezar con <strong><em>magnet:?</em></strong>.'
                         }]
                     }
                 },
                 onSuccess: (event, fields) => {
                     $('#torrent-upload-progress').html(`
                         <div class="dz-preview dz-file-preview">
-                            You have added magnet:
+                            Añadiste un magnet:
                             <li class="dz-details">
                                 ${fields.magnet}
                             </li>                        
@@ -216,7 +216,7 @@ html
                 previewsContainer: '#torrent-upload-progress',
                 previewTemplate: `
                     <div class="dz-preview dz-file-preview">
-                        You have chosen file:
+                        Elegiste el archivo:
                         <li class="dz-details">
                             <span data-dz-name></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span data-dz-size></span>)
                         </li>                        
@@ -372,8 +372,8 @@ html
                                             <table class="ui single line very basic table" id="table-${torrent.infoHash}">
                                                 <thead>
                                                     <tr>
-                                                        <th>Descarga</th>
-                                                        <th>Subida</th>
+                                                        <th>Descargado</th>
+                                                        <th>Subido</th>
                                                         <th>ETA</th>
                                                         <th>Recibido</th>
                                                         <th>Radio</th>
@@ -414,7 +414,7 @@ html
                         label: 'percent',
                         percent: torrent.progress * 100,
                         text: {
-                            active: `Descargar ${downloadSpeed} Subida ${uploadSpeed} ETA ${eta}`,
+                            active: `Descarga ${downloadSpeed} Subida ${uploadSpeed} ETA ${eta}`,
                             success: 'Completado'
                         }
                     });
