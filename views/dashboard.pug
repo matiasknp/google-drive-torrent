@@ -83,7 +83,7 @@ html
         // Initial upload modal
         #add-torrent-modal.ui.basic.modal
             i.close.icon
-            .header Upload your torrent file
+            .header Subí tu torrent
             #torrent-upload-form.ui.form.image.content
                 #torrent-upload.ui.medium.image.dropzone
                     .ui.fade.reveal.clickable
@@ -95,9 +95,9 @@ html
                 .description
                     .ui.inverted.header 
                         i.ui.pointing.left.icon 
-                        | Click to add your .torrent file
+                        | Hacé click para agregar tu .torrent
                     .ui.action.input
-                        input(type="text", name="magnet", placeholder="Or paste your magnet link here", style="width: 300px")
+                        input(type="text", name="magnet", placeholder="O pegá tu magnet link acá", style="width: 300px")
                         .ui.teal.right.labeled.icon.submit.button Go
                             i.upload.icon   
                     .ui.yellow.error.message // for invalid magnet regex                      
