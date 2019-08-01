@@ -13,7 +13,7 @@ html
         .ui.fixed.yellow.inverted.secondary.menu
             a.item
                 i.fa.fa-bars
-            a.item.red Dashboard
+            a.item.red Escritorio
             .right.menu
                 a.item#menu-profile-icon
                     img.ui.circular.mini.image(src=pic)
@@ -24,14 +24,14 @@ html
                                 .ui.tiny.circular.image
                                     img(src=pic)
                                 .middle.aligned.content
-                                    .header(style="color: grey; font-weight: bold; font-size: 16px")= name || 'Guest'
+                                    .header(style="color: grey; font-weight: bold; font-size: 16px")= name || 'Invitado'
                                     a.ui.google.plus.labeled.icon.mini.button(href="https://myaccount.google.com" style="margin-top: 10px")
                                         i.google.plus.icon
-                                        | My account
+                                        | Mi cuenta
                                     
                         .row(style="background-color: #ECEFF1")
                             .column
-                                a.ui.primary.button(href="/logout") Sign Out
+                                a.ui.primary.button(href="/logout") Salir
 
                                   
                     
@@ -55,18 +55,18 @@ html
                             .completed.disabled.step
                                 i.google.icon(style="color: #4885ed")
                                 .content
-                                    .title Login
-                                    .description with your Google Account
+                                    .title Ingresá
+                                    .description con tu cuenta de Google
                             a#upload-step.active.step
                                 i.magnet.green.icon
                                 .content
-                                    .title Upload
-                                    .description your torrent file
+                                    .title Subí
+                                    .description tu torrent
                             a.active.step(href=`${driveUrl}`, target="_blank")
                                 i.desktop.orange.icon
                                 .content
-                                    .title View
-                                    .description files in Google Drive
+                                    .title Mirá
+                                    .description tus archivos en Google Drive
 
                     // If no torrents
                     #zero-torrents.centered.row(style="display: none")
@@ -74,7 +74,7 @@ html
                             .ui.items
                                 .item
                                     i.ui.add.to.cart.large.icon
-                                    .middle.aligned.content You have nothing here yet.  Click to add your first torrent
+                                    .middle.aligned.content Todavía no tenés nada.  Hacé click para agregar tu primer torrent
                     // If torrents
                     #if-torrents.centered.row(style="display: none")
                         .ui.vertical.left.aligned.segment(style="width: 80%")
@@ -108,19 +108,19 @@ html
 
                     #torrent-upload-spinner(style="display: none")
                         .ui.processing.active.dimmer
-                            .ui.indeterminate.text.loader Processing torrent
+                            .ui.indeterminate.text.loader Procesando torrent
             .actions
-                .ui.negative.right.labeled.icon.button Close
+                .ui.negative.right.labeled.icon.button Cerrar
                     i.remove.icon
-                .ui.positive.right.labeled.icon.button Done
+                .ui.positive.right.labeled.icon.button Listo
                     i.checkmark.icon
         
 
         // (De)select torrent files modal
         #update-torrent-files-modal.ui.modal
-            .header Select files to download
-                .ui.green.tiny.select-all.button(style="margin-left: 20px") Select all
-                .ui.red.tiny.clear-all.button(style="margin-left: 10px") Clear all
+            .header Seleccionar archivos para descargar
+                .ui.green.tiny.select-all.button(style="margin-left: 20px") Seleccionar todo
+                .ui.red.tiny.clear-all.button(style="margin-left: 10px") Borrar todo
             .content
                 #torrent-files-select-form.ui.form
                     .field
@@ -136,15 +136,15 @@ html
                 .ui.small.image
                     img(src="./img/trash.ico")
                 .description
-                    .ui.header You are trying to delete torrent
+                    .ui.header Estás tratando de eliminar un torrent
                     ul
                         li
-                    p Proceed?
-                    p(style="color: orange") Note: This action will <strong>not remove</strong> files in your Google Drive.
+                    p Continuar?
+                    p(style="color: orange") Nota: Ésta acción <strong>no eliminará</strong> tus archivos en Google Drive.
             .actions
-                .ui.negative.right.labeled.icon.button Cancel
+                .ui.negative.right.labeled.icon.button Cancelar
                     i.remove.icon
-                .ui.positive.right.labeled.icon.button Proceed
+                .ui.positive.right.labeled.icon.button Aceptar
                     i.checkmark.icon
 
         script(src="https://code.jquery.com/jquery-3.1.1.min.js", integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=", crossorigin="anonymous")
@@ -181,7 +181,7 @@ html
                         rules: [{
                             type: 'regExp',
                             value: '/^magnet:\\?/',
-                            prompt: 'Please enter a valid magnet link.  It should begin with <strong><em>magnet:?</em></strong>'
+                            prompt: 'Por favor ingrese un link válido.  Debe empezar con <strong><em>magnet:?</em></strong>'
                         }]
                     }
                 },
@@ -241,10 +241,10 @@ html
                 },
                 accept: function(file, done) {   
                     if (!file.name.endsWith('.torrent')) {
-                        return done('Only .torrent files are supported');
+                        return done('Solo archivos .torrent son soportados');
                     }
                     if (file.size == 0) {
-                        return done('File must not be empty');
+                        return done('El archivo no debe estar vacío');
                     }
                     done();
                 },
@@ -261,7 +261,7 @@ html
                 if (err) {
                     return $('.dz-error-message').html(`
                         <strong>Error:</strong>&nbsp;&nbsp;${err.message}.<br>
-                        <strong>Please try again.</strong>
+                        <strong>Por favor intente nuevamente.</strong>
                     `);
                 }
                 showUpdateTorrentFilesModal(torrent);
@@ -301,7 +301,7 @@ html
             const deleteTorrent = (torrent) => {
                 $.post('/delete-torrent', {infoHash: torrent.infoHash})
                  .done(() => {
-                    showTorrentSuccess([torrent], 'Removed torrent');
+                    showTorrentSuccess([torrent], 'Torrent eliminado');
                  })
                  .always(() => {
                     $(`#torrent-${torrent.infoHash}`).remove();
@@ -357,7 +357,7 @@ html
                                     <div class="ui accordion">
                                         <div class="title">
                                             <i class="dropdown icon"></i>
-                                            Torrent info
+                                            Info del torrent
                                             <div class="ui right floated" onclick="event.stopPropagation()">
                                                 <i class="circular teal inverted torrent settings icon"></i>
                                                 <a style="display: none" download>
@@ -372,11 +372,11 @@ html
                                             <table class="ui single line very basic table" id="table-${torrent.infoHash}">
                                                 <thead>
                                                     <tr>
-                                                        <th>Downloaded</th>
-                                                        <th>Uploaded</th>
+                                                        <th>Descarga</th>
+                                                        <th>Subida</th>
                                                         <th>ETA</th>
-                                                        <th>Received</th>
-                                                        <th>Ratio</th>
+                                                        <th>Recibido</th>
+                                                        <th>Radio</th>
                                                         <th>Peers</th>
                                                     </tr>
                                                 </thead>
@@ -460,7 +460,7 @@ html
 
             // display success messages
             const showTorrentSuccess = (torrents, overrideMessage) => {
-                const successMessage = overrideMessage? overrideMessage: 'Download success';
+                const successMessage = overrideMessage? overrideMessage: 'Descarga completa';
                 torrents.map((torrent) => {
                     const html = `
                         <div class="ui success message">
